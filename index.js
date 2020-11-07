@@ -1,6 +1,6 @@
 let start
 const { BTree } = require('node-btree')
-
+const MegaHash = require('megahash');
 
 function comparator(a, b) {
     return a - b
@@ -24,6 +24,14 @@ console.log("tree set ", new Date - start)
 
 
 start = new Date()
+const mh = new MegaHash()
+for(let i=0;i<100000;i++){
+    mh.set(i, Math.random())
+}
+console.log("megahash set ", new Date - start)
+
+
+start = new Date()
 for(let i=0;i<100000;i++){
     map.get(i)
 }
@@ -35,3 +43,9 @@ for(let i=0;i<100000;i++){
     tree.get(i)
 }
 console.log("tree find ", new Date - start)
+
+start = new Date()
+for(let i=0;i<100000;i++){
+    mh.get(i)
+}
+console.log("megahash find ", new Date - start)

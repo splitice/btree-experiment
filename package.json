@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "megahash": "^1.0.4",
     "node-btree": "^0.6.0"
   }
 }
